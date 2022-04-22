@@ -58,15 +58,14 @@ function addNewExpenseHandler(event){
         return;
     }
     
-    //create object that will store the values of new transaction
+    
     const newTransaction = {
         id: Math.random(),
         transaction_name: new_name_value,
-        transaction_amount: validatedAmount/*number*/,
+        transaction_amount: validatedAmount,
         operation: checkedboxInput.id
     }
 
-    console.log(newTransaction)
     allExpenses.push(newTransaction);
 
     renderExpenses(newTransaction);
