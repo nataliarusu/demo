@@ -18,42 +18,30 @@ body{
 .backround-img{
 
     background: url(./images/bg.jpg);
-    /*we need to add width and height!*/
     height: 100vh;
     width: 100vw;
     position: fixed;
     top:0;
-    z-index: -1;/*works just with position!, if no position applyed z-index will not work!*/
-    /*if 2 fixed els has same z-index, html order will aplied!, 
-    so if header& div both have z-index:0, but header comes after background div header will be above div*/
-    filter: grayscale(80%) blur(1px);/*or add just one of them*/
-    background-size: 100%; /*this is the width of img, so it will fit width of container*/
-    background-repeat: no-repeat;/*if small img no repeat it*/
-    background-position: 0 100%;/*will push img to bottom of container, so bottom of viewport, 
-    because our img height is small, I want to display it in bottom of container */
-    background-origin: border-box;/*will fit border as well*/
-    background-attachment: fixed;/*The background is fixed relative to the viewport. 
-    /*Even if an element has a scrolling mechanism, the background doesn't move with the element.*/
+    z-index: -1;
+    filter: grayscale(80%) blur(1px);
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-origin: border-box;
+    background-attachment: fixed;
 }
 
 /*HEADER*/
 header{
-   /* position: fixed;/*will referce to viewport*/
-/*because of position fixed it is now inline-block el, so we can give width to it, because it is not inline element*/
-/*because of position fixed it was taken from document flow, so the viewport is where the element refers to!*/
-/*because of position fixed it is NOT a default postition:static, so we can give (top, left, bottom, right)*/
-/*because of position not default z-index can be applied*/
     z-index: 1;
     top: 0;
     left: 0;
-    width: 100%;
-   
-    /*max-height: 13vh;because I deleted position fixed*/
+    width: 100%;    
     background: #c8d8d9;
     border-bottom: 2px solid #9ea5a6;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;/*because flex*/
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
 }
@@ -75,7 +63,7 @@ header h1{
      background-color: #92a8aa;
      color: white;     
      border-radius: 8px;
-     cursor: pointer;/*the hand*/
+     cursor: pointer;
      font-weight: 800;
  }
  
@@ -87,19 +75,14 @@ header h1{
  }
  /*END header*/
  main{
-   /* margin-top: 13vh;/*as height of header*/
-    position: relative;/*for modal form*/
+    position: relative;
    
 }
 
- /*total balance display*/
-
 .detaled__balance-display{
-    max-width: 100%;
-    
-    margin: auto;/*to position page in cener of the page horisontally only! will work*/
-    background-color: white;
-    
+    max-width: 100%;    
+    margin: auto;
+    background-color: white;    
     padding: 20px;
     box-shadow: 1px 2px 5px #c8d8d9;
     display: grid;
@@ -107,21 +90,16 @@ header h1{
     justify-content: center;
     
 }
-.detaled__balance-display > div{/*every div children of this class*/
-    
+.detaled__balance-display > div{    
     text-align: center;
- 
-
 }
 
 .detaled__balance-income{    
     border-bottom: 2px solid gainsboro;    
     
 }
-.detaled__balance-expense{
-    
-    border-top: 2px solid gainsboro;
-    
+.detaled__balance-expense{    
+    border-top: 2px solid gainsboro; 
     
 }
 
@@ -142,9 +120,9 @@ header h1{
 
 .history-lists{/*ul*/
     min-width: 100%;
-    margin: auto;/*to position in cener of the page horisontally only! will work*/
+    margin: auto;
     list-style: none;
-    padding:0;/*rewrite default*/
+    padding:0;
 }
 
 .history-list__container{
@@ -154,27 +132,25 @@ header h1{
     margin: 1rem 0;
     min-height: 0;
     display: grid;
-    grid-template-columns: 80% 20%;/*NOT 3fr 1fr because it will be not be
-    and grid column content will go in one big row as content with, not fix*/
+    grid-template-columns: 80% 20%;
 }
 .history-list__name{
     margin: 10px;
     text-align: left; 
-    align-self: center;/*align p verticaly in center*/       
-    overflow-wrap: break-word;/*the content will go to next row if its too big*/
+    align-self: center;     
+    overflow-wrap: break-word;
   
 
 }
 .history-list__amount{
-    margin: 10px;  
-    /*align-self, justify-self position el inside grid*/  
-    align-self: center;/*align p verticaly in center*/
-    justify-self: end;/**/   
-    overflow-wrap: anywhere;/*if long number it will go to next line eventhough no space between numbers, not as break-word do*/
+    margin: 10px;    
+    align-self: center;
+    justify-self: end;   
+    overflow-wrap: anywhere;
 }
 
 .delete-container{
-    grid-column-start: 2;/*after second vertical line in grid*/
+    grid-column-start: 2;
 }
 
 /*END History*/ 
@@ -182,8 +158,8 @@ header h1{
 /*backdrop*/
 .backdrop{
     background: #595a5cad;
-    position: fixed;/*position fixed because I want to be on whole viewport, and put top 0, left 0*/
-    z-index: 2;/*z-index works because position specified, */
+    position: fixed;
+    z-index: 2;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -194,16 +170,15 @@ header h1{
 
 /*New transaction form*/
 .new-transaction{
-    position: absolute;/*relative will be main*/
-    z-index: 3;/*z-index higher than backdrop, works because position not default*/
+    position: absolute;
+    z-index: 3;
     padding: 10px;
     width: 60%;
     top: 0vh;
     left: 10%;
-
     background: #f1f3f4;
     border: 2px solid grey;
-    padding: 10px;/*in container els will have space*/
+    padding: 10px;
     
 }
 
@@ -212,7 +187,7 @@ header h1{
 }
 #new-transaction__form label,
 #new-transaction__form button{
-    display: inherit;/*will inherti display block from parent which is the form*/
+    display: inherit;
 }
 #checkboxes section{
     display: inline-block;
@@ -231,9 +206,6 @@ header h1{
     margin: 10px;
     padding: 8px;
 }
-/*end*/
-
-
 
 
 .checkbox-error,
@@ -244,22 +216,22 @@ header h1{
 }
 
 
-/*deletw*/
+
 .delete-container:hover{
     animation-duration: 3s;
-  animation-name: slidein;
+    animation-name: slidein;
  
 }
 
 
-@media(min-width:450px){/*if 450px and more apply this style*/
+@media(min-width:450px){
     .header{
         max-height: 10vh;
     }
     
     .detaled__balance-display{
         grid-template-columns: repeat(2, 50%);
-        max-width: 50%;/*50% of parent content!(without parent padding), because position of this el is default*/
+        max-width: 50%;
     }
     .detaled__balance-income{
         border-bottom: 0;
