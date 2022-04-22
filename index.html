@@ -1,11 +1,94 @@
-<html>
-	<head>
-		<title>Demo pages</title>
-		<link rel="stylesheet" href="index.css">
-	</head>
-	<body>
-		<p>This is the first page</p>
-		<div>New block added</div>
-		<div>One more block added</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense tracker</title>
+    <link href = 'index.css' rel="stylesheet" />
+    
+    <script src="./oneFileFunc.js" defer ></script>
+  
+</head>
+<body>
+    <template id ='template'>
+        <li class = 'history-list__container'>
+            <p class = 'history-list__name'>name</p>
+            <p class='history-list__amount'>amount</p>
+            <div class = 'delete-container'>                
+                <button class='delete'>Delete</button>
+            </div>
+            
+        </li>
+    </template>
+    <div class = 'backround-img'></div>
+    <div class = 'backdrop disabled'></div>
+    
+    <header>            
+        <div class ='balance'>
+            <h2>Your balance</h2>
+            <p id='balance__total'>£<span>0</span></p>
+        </div>            
+        <button id ='open-btn'>Add new transaction</button>           
+    </header>
+    
+    <main>
+        <h1>Expense tracker</h1>
+        <div class="detaled__balance">
+            <div class = 'detaled__balance-display'>
+                <div class = 'detaled__balance-income'>
+                    <h4>INCOME</h4>
+                    <p id='balance__total-income'>£<span>0</span></p>
+            </div>
+            <div class = 'detaled__balance-expense'>
+                <h4>EXPENSE</h4>
+                <p id = 'balance__total-expense'>£<span>0</span></p>
+            </div>
+        </div>
+       
+    
+        <div class='history'>
+            <h2>History</h2>
+            <p id='empty-list'>There is nothing to display</p>
+            <ul class='history-lists'>
+               
+            </ul>
+
+        </div>
+        
+        <div class = 'new-transaction disabled'>
+            <h2>Add new transaction</h2>
+            <form id = 'checkboxes'>
+                <section>
+                    <input type="checkbox" id ='new-income' name='checkExpense' value='income' checked/>
+                    <label for='new-expense'>Income</label>
+                    <input type="checkbox" id ='new-expense' name='checkExpense' value='expense'/>
+                    <label for='new-expense'>Expense</label>
+                   
+                    
+                </section>
+            </form>
+            <form id = 'new-transaction__form'>
+                
+                <label for='new-transaction__name'>Text</label>
+                <textarea id='new-transaction__name' rows='4'></textarea>
+                
+                <label for = 'new-transaction__amount'>Amount</label>
+                <input type="number" id = 'new-transaction__amount' step="0.01"/>
+               
+
+                <section>
+                    <button type='submit'>Add transaction</button>
+                    <div class = 'new-transaction__cancel'>Cancel</div>
+                </section>
+                
+
+            </form>
+
+        </div>
+    </main>  
+    
+
+    
+</body>
 </html>
